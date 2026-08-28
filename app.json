@@ -1,0 +1,67 @@
+{
+  "expo": {
+    "name": "OCR 테스트",
+    "slug": "ocr-test",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "ocrtest",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "icon": "./assets/expo.icon",
+      "bundleIdentifier": "com.guksutest.ocrtest",
+      "infoPlist": {
+        "NSCameraUsageDescription": "성분표를 촬영하기 위해 카메라를 사용합니다.",
+        "NSPhotoLibraryUsageDescription": "성분표 사진을 선택하기 위해 사진 접근이 필요합니다."
+      }
+    },
+    "android": {
+      "package": "com.guksutest.ocrtest",
+      "adaptiveIcon": {
+        "backgroundColor": "#E6F4FE",
+        "foregroundImage": "./assets/images/android-icon-foreground.png",
+        "backgroundImage": "./assets/images/android-icon-background.png",
+        "monochromeImage": "./assets/images/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "output": "static",
+      "favicon": "./assets/images/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#208AEF",
+          "image": "./assets/images/splash-icon.png",
+          "imageWidth": 76
+        }
+      ],
+      [
+        "react-native-vision-camera-mlkit",
+        {
+          "textRecognition": true,
+          "textRecognitionKorean": true,
+          "textRecognitionChinese": false,
+          "textRecognitionDevanagari": false,
+          "textRecognitionJapanese": false,
+          "barcodeScanning": false
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "성분표 사진을 선택하기 위해 사진 접근이 필요합니다.",
+          "cameraPermission": "성분표를 촬영하기 위해 카메라를 사용합니다.",
+          "microphonePermission": false
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true,
+      "reactCompiler": true
+    }
+  }
+}
