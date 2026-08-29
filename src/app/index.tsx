@@ -11,7 +11,7 @@ const HomeScreen = () => (
 
     <View style={styles.menu}>
       <Link href="/ocr-lab" asChild>
-        <Pressable style={[styles.card, styles.primaryCard]}>
+        <Pressable style={primaryCardStyle}>
           <Text style={styles.cardTitle}>OCR 검증 실험실</Text>
           <Text style={styles.cardDescription}>
             성분표 온디바이스 OCR 정확도 측정{'\n'}배치 모드(숫자) · 관찰 모드(눈으로)
@@ -51,3 +51,10 @@ const styles = StyleSheet.create({
   cardTitle: { fontSize: 17, fontWeight: '600', color: '#111111' },
   cardDescription: { fontSize: 13, lineHeight: 19, color: '#6e6e73' },
 });
+
+/**
+ * <Link asChild> 는 Slot 으로 자식을 복제하는데, 이때 배열 스타일을 넘기면
+ * "you are passing an array of styles to a child of <Slot>" 렌더 에러가 난다.
+ * 미리 합쳐서 단일 객체로 넘긴다.
+ */
+const primaryCardStyle = StyleSheet.flatten([styles.card, styles.primaryCard]);

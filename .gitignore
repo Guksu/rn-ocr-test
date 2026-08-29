@@ -44,3 +44,6 @@ example
 
 # 로컬 환경변수 (.env.example 을 복사해서 사용)
 .env
+
+# 합성 OCR 샘플 (tools/generate-ocr-samples.py 로 재생성 가능)
+assets/ocr-samples/*.jpg
